@@ -38,7 +38,7 @@ public class Main {
         set.add("cos");
 
         Set<Integer> zbiorLiczb = new HashSet<>(Arrays.asList(1, 2, 3));
-        Set<Integer> liczby1 = new HashSet<>(Arrays.asList(1,2,3,4,5));
+        Set<Integer> liczby1 = new HashSet<>(Arrays.asList(1, 2, 3, 4, 5));
         System.out.println(liczby1);
 
         liczby1.add(6);
@@ -50,15 +50,50 @@ public class Main {
         boolean czyTrzy = liczby1.contains(3);
         System.out.println(czyTrzy);
 
-        Set<Integer> A = new HashSet<>(Arrays.asList(1,2,3,4));
-        Set<Integer> B = new HashSet<>(Arrays.asList(3,4,5,6));
+        Set<Integer> A = new HashSet<>(Arrays.asList(1, 2, 3, 4));
+        Set<Integer> B = new HashSet<>(Arrays.asList(3, 4, 5, 6));
 
         //czesc wspolna
         Set<Integer> wspolna = new HashSet<>(A);
         wspolna.retainAll(B);
         System.out.println(wspolna);
         // suma
-        Set<Integer> suma = new HashSet<>(
-    }
+        Set<Integer> suma = new HashSet<>(A);
+        suma.addAll(B);
+        System.out.printf(suma.toString());
 
+        //roznica aod b
+        Set<Integer> unkatoweA = new HashSet<>(A);
+        unkatoweA.removeAll(B);
+        System.out.println();
+        System.out.printf(unkatoweA.toString());
+        System.out.println();
+
+        //roznice symetryczne antywspolne
+        Set<Integer> symetryczne = new HashSet<>(A);
+        symetryczne.removeAll(B);
+        Set<Integer> symetryczne1 = new HashSet<>(B);
+        symetryczne1.removeAll(A);
+        symetryczne.addAll(symetryczne1);
+        System.out.println(symetryczne);
+
+        //
+        Scanner scanner = new Scanner(System.in);
+        System.out.println("podaj dowolny tekst");
+        String tekst = scanner.nextLine();
+        tekst = tekst.replaceAll("[^a-zA-Z]", "");
+        System.out.println(tekst);
+        //polskie to ("[^\\p{L}]","")
+        Set<Character> osobno = new TreeSet<>();
+        char [] znaki = tekst.toCharArray();
+        for (char c : znaki) {
+            osobno.add(c);
+        }
+        System.out.println(osobno);
+
+
+
+
+
+    }
 }

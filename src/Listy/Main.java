@@ -1,0 +1,41 @@
+package Listy;
+
+import java.util.ArrayList;
+import java.util.Collections;
+import java.util.List;
+
+public class Main {
+    public static void main(String[] args) {List<Integer> liczby = new ArrayList<>();
+        liczby.add(2);
+        liczby.add(2);
+        liczby.add(2);
+        liczby.add(3);
+        liczby.add(1);
+        liczby.add(0);
+        liczby.add(8);
+        liczby.add(1);
+        liczby.add(2);
+        liczby.add(2);
+        liczby.add(2);
+        System.out.println(liczby);
+        liczby.set(0,9);
+        System.out.println(liczby);
+        liczby.remove(5);
+        System.out.println(liczby);
+        liczby.remove((Integer) 2);
+        System.out.println(liczby);
+        liczby.replaceAll(x->x==2  ? 0:x);
+        System.out.println(liczby);
+        Collections.sort(liczby);
+        System.out.println(liczby);
+        Collections.reverse(liczby);
+        System.out.println(liczby);
+        int pierwszy = liczby.get(0);
+        System.out.println(pierwszy);
+
+        List<String> sas = List.of("sasdasdsa", "fdsffs");
+
+
+    }
+
+}

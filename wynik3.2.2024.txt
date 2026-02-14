@@ -1,0 +1,2 @@
+liczb ktore nie maja skrotu jest: 18
+28422

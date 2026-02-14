@@ -85,14 +85,38 @@ public class Main {
         System.out.println(tekst);
         //polskie to ("[^\\p{L}]","")
         Set<Character> osobno = new TreeSet<>();
-        char [] znaki = tekst.toCharArray();
+        char[] znaki = tekst.toCharArray();
         for (char c : znaki) {
             osobno.add(c);
         }
         System.out.println(osobno);
 
+        List<Integer> calkowite = new ArrayList<>();
+        calkowite.add(1);
+        calkowite.add(2);
+        calkowite.add(3);
+        calkowite.add(4);
+        calkowite.add(5);
+        calkowite.add(6);
+        calkowite.add(7);
+        calkowite.add(8);
+        calkowite.add(9);
+        calkowite.add(10);
+
+        ///zad
+        Scanner scanner12 = new Scanner(System.in);
+        System.out.println("podaj liczby odcielone przecinkiem");
+        String pojebanegowno = scanner12.nextLine();
+        String[] podzielnaczesci = pojebanegowno.split(",");
+
+        List<Integer> lista = new ArrayList<>();
+        for (String cyfrxa:podzielnaczesci
+             ) {
+            lista.add(Integer.parseInt(cyfrxa));
 
 
+        }
+        System.out.println(lista);
 
 
     }

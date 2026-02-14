@@ -85,6 +85,9 @@ public class Main {
             }
         }
 
+        double[] ocenyKasi = {2,3};
+        Uczen kasia = new Uczen("sasa", "sasas", ocenyKasi);
+
 
     }
 

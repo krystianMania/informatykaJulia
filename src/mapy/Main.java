@@ -2,6 +2,7 @@ package mapy;
 
 import java.util.HashMap;
 import java.util.Map;
+import java.util.Scanner;
 
 public class Main {
     public static void main(String[] args) {
@@ -86,6 +87,48 @@ public class Main {
         produkty.entrySet().removeIf(entry -> entry.getValue()>=4);
         System.out.println(produkty);
 
+
+
+        System.out.println("---------------------------------------");
+        Scanner scanner2 = new Scanner(System.in);
+        Map<String, Double> mozliwosci = new HashMap<>();
+
+        mozliwosci.put("1", 1.0);
+        mozliwosci.put("1+", 1.5);
+        mozliwosci.put("2-", 1.75);
+        mozliwosci.put("2", 2.0);
+        mozliwosci.put("2+", 2.5);
+        mozliwosci.put("3-", 2.75);
+        mozliwosci.put("3", 3.0);
+        mozliwosci.put("3+", 3.5);
+        mozliwosci.put("4-", 3.75);
+        mozliwosci.put("4", 4.0);
+        mozliwosci.put("4+", 4.5);
+        mozliwosci.put("5-", 4.75);
+        mozliwosci.put("5", 5.0);
+        mozliwosci.put("5+", 5.5);
+        mozliwosci.put("6-", 5.75);
+        mozliwosci.put("6", 6.0);
+
+        double n = 0;
+        double suma7 = 0;
+
+        while (true) {
+
+            System.out.println("podaj ocene z zakresu 1-6 jesli bedzie na inna program zakonczy wyliczanie z nich sredniej");
+            String ocena = scanner2.next();
+            boolean czyJestWOceny = mozliwosci.containsKey(ocena);
+            if (czyJestWOceny == true) {
+                double a = mozliwosci.get(ocena);
+                suma7 += a;
+                n++;
+            }
+            if (czyJestWOceny == false) {
+                System.out.println("koncze liczenie sredniej");
+                break;
+            }}
+        double srednia = (suma7 / n);
+        System.out.println("Twoja srednia to: " + srednia);
 
 
     }

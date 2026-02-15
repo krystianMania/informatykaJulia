@@ -4,41 +4,40 @@ import java.io.BufferedReader;
 import java.io.FileReader;
 import java.io.FileWriter;
 import java.io.IOException;
-import java.util.*;
+import java.util.ArrayList;
+import java.util.List;
 
 public class Main4 {
     public static void main(String[] args) throws IOException {
         BufferedReader br = new BufferedReader(new FileReader("liczby2024.txt"));
         FileWriter fw = new FileWriter("wynik4.3.2024.txt");
-        String wiersz1 = br.readLine();
-        wiersz1 = wiersz1.replaceAll("\n+", "");
-        String[] tablica1 = wiersz1.split("\\s+");
-        List<Long> wierszP = new ArrayList<>();
-        Set<Long> zbior = new HashSet<>();
-        for (String e : tablica1) {
-            wierszP.add(Long.parseLong(e));
-            zbior.add(Long.parseLong(e));
-        }
-        String wiersz2 = br.readLine();
-        wiersz2 = wiersz2.replaceAll("\n+", "");
-        String[] tablica2 = wiersz2.split("\\s+");
-        List<Long> wierszD = new ArrayList<>();
-        for (String e : tablica2) {
-            wierszD.add(Long.parseLong(e));
+
+        String wiersz = br.readLine();
+        String wierszs = br.readLine();
+
+        String [] tablica = wiersz.split("\\s+");
+        String [] tablicaa = wierszs.split("\\s+");
+
+        List<Long> wiersz1 = new ArrayList<>();
+        for (String e :tablica) {
+            wiersz1.add(Long.parseLong(e));
         }
 
-        for (int i = 0; i < zbior.size(); i++) {
-            final long unikalna = wierszP.get(i);
-            long ile = wierszP.stream().filter(x -> x.equals(unikalna)).count();
-            for (long potega =0 ; potega<=ile; potega++) {
-                for (int j = 0; j < wierszD.size(); j++) {
-                    if ((unikalna ^ potega) == wierszD.get(j)) {
-                        fw.write(String.valueOf(wierszD.get(j)));
-                    }
+        List<Long> wiersz2 = new ArrayList<>();
+        for (String e :tablicaa) {
+            wiersz2.add(Long.parseLong(e));
+        }
+
+        for (long calkowita:wiersz2) {
+            long calkowitaa = calkowita;
+            for (long pierwsza : wiersz1) {
+                 if(calkowita % pierwsza == 0) {
+                    calkowita = calkowita / pierwsza;
                 }
             }
-            wierszP.removeIf(x -> x.equals(unikalna));
-            wierszP.add(unikalna);
+            if (calkowita == 1) {
+                fw.write(calkowitaa +" ");
+            }
         }
         fw.close();
         br.close();
